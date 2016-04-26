@@ -1,11 +1,16 @@
+import _ from 'lodash';
 import { combineReducers } from 'redux';
 import gameSizes from '../components/grid_size_selector/grid_size_selector_constants';
 
 function cells(state = [], action) {
+	switch (action.type) {
+		case 'SET_GAME_SIZE':
+			return generateGridFromSize(action.payload);
+	}
 	return state;
 }
 
-const cellDefault = { isMine: false, isFlagged: true, isRevealed: true };
+const cellDefault = { isMine: false, isFlagged: false, isRevealed: false };
 
 function cell(state = cellDefault, action) {
 	return state;
@@ -36,3 +41,9 @@ export default combineReducers({
 	runningTime,
 	gameState
 });
+
+function generateGridFromSize(gameSize) {
+	let gridArray = _.fill(_.range(0, (gameSize.width * gameSize.height)), cell());
+
+	return gridArray;
+}
