@@ -1,5 +1,5 @@
 <table class="grid-table">
 	<tr class="grid-table__row" ng-repeat="row in grid.rows track by $index">
-		<td class="grid-table__cell" ng-repeat="cell in row track by $index">{{ 'cell' }}</td>
+		<td class="grid-table__cell" ng-repeat="cell in row track by $index">{{ cell.isMine }}</td>
 	</tr>
 </table>

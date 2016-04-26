@@ -13,7 +13,7 @@ function cells(state = [], action) {
 const cellDefault = { isMine: false, isFlagged: false, isRevealed: false };
 
 function cell(state = cellDefault, action) {
-	return state;
+	return _.assign({}, state);
 }
 
 function currentGameSize(state = gameSizes[0], action) {
@@ -44,6 +44,11 @@ export default combineReducers({
 
 function generateGridFromSize(gameSize) {
 	let gridArray = _.fill(_.range(0, (gameSize.width * gameSize.height)), cell());
+	console.log(gameSize.mines);
+
+	_.each(_.sampleSize(gridArray, gameSize.mines), function(cell) {
+		cell.isMine = true;
+	});
 
 	return gridArray;
 }
