@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import gameSizes from '../components/grid_size_selector/grid_size_selector_constants';
 
 function cells(state = [], action) {
 	return state;
@@ -10,21 +11,7 @@ function cell(state = cellDefault, action) {
 	return state;
 }
 
-const gameSizes = [{
-	width: 8,
-	height: 8,
-	mines: 10
-}, {
-	width: 16,
-	height: 16,
-	mines: 40
-}, {
-	width: 30,
-	height: 16,
-	mines: 99
-}];
-
-function gameSize(state = gameSizes[0], action) {
+function currentGameSize(state = gameSizes[0], action) {
 	return state;
 }
 
@@ -40,7 +27,7 @@ function gameState(state = GAME_STATE.Initial, action) {
 
 export default combineReducers({
 	cells,
-	gameSize,
+	currentGameSize,
 	runningTime,
 	gameState
 });
