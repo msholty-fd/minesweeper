@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { assign, map, range, each, sampleSize } from 'lodash';
 import { combineReducers } from 'redux';
 import gameSizes from '../components/grid_size_selector/grid_size_selector_constants';
 
@@ -13,7 +13,7 @@ function cells(state = [], action) {
 const cellDefault = { isMine: false, isFlagged: false, isRevealed: false };
 
 function cell(state = cellDefault, action) {
-	return _.assign({}, state);
+	return assign({}, state);
 }
 
 function currentGameSize(state = gameSizes[0], action) {
@@ -32,7 +32,7 @@ function runningTime(state = 0, action) {
 const GAME_STATE = { Won: 'Won', Lost: 'Lost', Active: 'Active', Initial: 'Initial' };
 
 function gameState(state = GAME_STATE.Initial, action) {
-	return state;
+	return assign({}, state);
 }
 
 export default combineReducers({
@@ -43,11 +43,10 @@ export default combineReducers({
 });
 
 function generateGridFromSize(gameSize) {
-	let gridArray = _.fill(_.range(0, (gameSize.width * gameSize.height)), cell());
-	console.log(gameSize.mines);
+	const gridArray = map(range(0, (gameSize.width * gameSize.height)), () => cell());
 
-	_.each(_.sampleSize(gridArray, gameSize.mines), function(cell) {
-		cell.isMine = true;
+	each(sampleSize(gridArray, gameSize.mines), function(mine) {
+		mine.isMine = true;
 	});
 
 	return gridArray;

@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { getCurrentRows } from '../../selectors';
 
 export default class GridController {
 	constructor($ngRedux, $scope) {
@@ -10,11 +10,10 @@ export default class GridController {
 	}
 
 	mapStateToThis(state) {
-		console.log('state.MSTT', state, _.chunk(state.cells, state.currentGameSize.width));
 		return {
 			currentGameSize: state.currentGameSize,
 			cells: state.cells,
-			rows: _.chunk(state.cells, state.currentGameSize.width)
+			rows: getCurrentRows(state)
 		};
 	}
 }
