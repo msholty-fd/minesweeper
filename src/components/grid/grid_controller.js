@@ -10,7 +10,6 @@ export default class GridController {
 	}
 
 	mapStateToThis(state) {
-		console.log('state.MSTT', state, _.chunk(state.cells, state.currentGameSize.width));
 		return {
 			currentGameSize: state.currentGameSize,
 			cells: state.cells,
