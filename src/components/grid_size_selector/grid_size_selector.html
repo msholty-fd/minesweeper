@@ -1,9 +1,9 @@
 <div>
-	
-	<label ng-repeat="size in gridSizeSelector.gameSizes">
+
+	<label ng-repeat="size in gridSizeSelector.gameSizes" ng-click="gridSizeSelector.setGameSize(size)">
 		w.{{ size.width }} / h.{{ size.height }} / mines.{{ size.mines }}
-		<input type="radio" />
+		<input type="radio" name="size"/>
 	</label>
-	
+
 	{{ gridSizeSelector.currentGameSize }}
 </div>

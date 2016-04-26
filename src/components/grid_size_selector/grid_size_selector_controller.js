@@ -1,9 +1,10 @@
 import gameSizes from './grid_size_selector_constants';
+import { setGameSize } from '../../actions';
 
 export default class GridSizeSelectorController {
 	constructor($ngRedux, $scope) {
 		const unsubscribe = $ngRedux.connect(
-			this.mapStateToThis, null
+			this.mapStateToThis, { setGameSize }
 		)(this);
 
 		$scope.$on('$destroy', unsubscribe);
@@ -14,6 +15,6 @@ export default class GridSizeSelectorController {
 	mapStateToThis(state) {
 		return {
 			currentGameSize: state.currentGameSize
-		}
+		};
 	}
 }

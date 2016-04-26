@@ -12,6 +12,11 @@ function cell(state = cellDefault, action) {
 }
 
 function currentGameSize(state = gameSizes[0], action) {
+	switch (action.type) {
+		case 'SET_GAME_SIZE':
+			return action.payload;
+	}
+
 	return state;
 }
 
