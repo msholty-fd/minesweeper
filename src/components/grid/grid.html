@@ -1,5 +1,8 @@
 <table class="grid-table">
 	<tr class="grid-table__row" ng-repeat="row in grid.rows track by $index">
-		<td class="grid-table__cell" ng-repeat="cell in row track by $index">{{ cell.isMine }}</td>
+	<!-- rows are the same!!!-->
+		<td class="grid-table__cell" ng-repeat="cell in row track by $index"
+			ng-class="{ isRevealed: cell.isRevealed }"
+			ng-click="grid.revealCell(grid.cells, $index)">{{$index}}</td>
 	</tr>
 </table>

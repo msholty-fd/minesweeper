@@ -1,0 +1,4 @@
+.grid-size-selector {
+	display: flex;
+	flex-direction: column;
+}

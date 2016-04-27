@@ -6,6 +6,8 @@ function cells(state = [], action) {
 	switch (action.type) {
 		case 'SET_GAME_SIZE':
 			return generateGridFromSize(action.payload);
+		case 'REVEAL_CELL':
+			return revealCell(action.payload);
 	}
 	return state;
 }
@@ -51,4 +53,9 @@ function generateGridFromSize(gameSize) {
 	});
 
 	return gridArray;
+}
+
+function revealCell(payload) {
+	payload.grid[payload.index].isRevealed = true;
+	return payload.grid;
 }

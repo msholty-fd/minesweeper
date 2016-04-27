@@ -1,0 +1,14 @@
+.grid-table {
+
+}
+
+.grid-table__cell {
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+	background-color: rgb(153, 168, 177);
+}
+
+.grid-table__cell.isRevealed {
+	background-color: #f0f3f8;
+}

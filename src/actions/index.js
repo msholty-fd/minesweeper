@@ -5,6 +5,17 @@ function setGameSize(size) {
 	};
 }
 
+function revealCell(grid, index) {
+	return {
+		type: 'REVEAL_CELL',
+		payload: {
+			grid,
+			index
+		}
+	};
+}
+
 export {
-	setGameSize
+	setGameSize,
+	revealCell
 };
