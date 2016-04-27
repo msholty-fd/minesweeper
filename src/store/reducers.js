@@ -7,7 +7,7 @@ function cells(state = [], action) {
 		case 'SET_GAME_SIZE':
 			return generateGridFromSize(action.payload);
 		case 'REVEAL_CELL':
-			return revealCell(action.payload);
+			return revealCell(state, action.payload);
 	}
 	return state;
 }
@@ -45,8 +45,7 @@ export default combineReducers({
 });
 
 function generateGridFromSize(gameSize) {
-	let gridArray = _.fill(_.range(0, (gameSize.width * gameSize.height)), cell());
-	console.log(gameSize.mines);
+	const gridArray = _.map(_.range(0, (gameSize.width * gameSize.height)), () => cell());
 
 	_.each(_.sampleSize(gridArray, gameSize.mines), function(cell) {
 		cell.isMine = true;
@@ -55,7 +54,7 @@ function generateGridFromSize(gameSize) {
 	return gridArray;
 }
 
-function revealCell(payload) {
-	payload.grid[payload.index].isRevealed = true;
-	return payload.grid;
+function revealCell(cells, index) {
+	cells[index].isRevealed = true;
+	return cells;
 }

@@ -5,13 +5,10 @@ function setGameSize(size) {
 	};
 }
 
-function revealCell(grid, index) {
+function revealCell(index) {
 	return {
 		type: 'REVEAL_CELL',
-		payload: {
-			grid,
-			index
-		}
+		payload: index
 	};
 }
 
