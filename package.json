@@ -4,7 +4,8 @@
   "description": "Angular with redux playground",
   "scripts": {
     "start": "gulp dev",
-    "test": "mocha --compilers js:babel-core/register --recursive 'src/**/*.test.js'"
+    "test": "mocha --compilers js:babel-core/register --recursive 'src/**/*.test.js'",
+    "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
     "angular": "^1.5.3",
