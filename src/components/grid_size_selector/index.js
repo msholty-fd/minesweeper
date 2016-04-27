@@ -4,5 +4,9 @@ import GridSizeSelectorController from './grid_size_selector_controller';
 export default {
 	controller: GridSizeSelectorController,
 	template,
-	controllerAs: 'gridSizeSelector'
+	controllerAs: 'gridSizeSelector',
+	bindings: {
+		currentGameSize: '<',
+		onGameSizeChanged: '<'
+	}
 };

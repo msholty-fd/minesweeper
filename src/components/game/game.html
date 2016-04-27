@@ -1,7 +1,8 @@
 <div class="game">
 	<h1 class="game__title">Minesweeper</h1>
 
-	<grid-size-selector></grid-size-selector>
+	<grid-size-selector current-game-size="game.currentGameSize"
+		on-game-size-changed="game.setGameSize"></grid-size-selector>
 
 	<grid></grid>
 </div>
