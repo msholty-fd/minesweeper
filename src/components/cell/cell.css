@@ -8,11 +8,13 @@
 	align-items: center;
 }
 
+.lost .minesweeper-cell,
 .minesweeper-cell--is-revealed {
 	font-size: initial;
 }
 
-.minesweeper-cell--is-mine.minesweeper-cell--is-revealed{
+.minesweeper-cell--is-mine.minesweeper-cell--is-revealed,
+.lost .minesweeper-cell--is-mine {
 	color: red;
 	background-color: red;
 }

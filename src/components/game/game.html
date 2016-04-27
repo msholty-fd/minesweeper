@@ -4,5 +4,7 @@
 	<grid-size-selector current-game-size="game.currentGameSize"
 		on-game-size-changed="game.setGameSize"></grid-size-selector>
 
-	<grid rows="game.rows" cell-click="game.onCellClicked"></grid>
+	<game-status status="game.gameState"></game-status>
+
+	<grid ng-class="{'lost': game.gameState === 'Lost'}" rows="game.rows" cell-click="game.cellClickHandler"></grid>
 </div>

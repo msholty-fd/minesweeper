@@ -22,11 +22,9 @@ export function cells(state = [], action) {
 const cellDefault = { isMine: false, isFlagged: false, isRevealed: false };
 
 function cell(state = cellDefault, action) {
-	console.log('state', state);
 	switch (action.type) {
 		case REVEAL_CELL:
 			return { ...state, isRevealed: true };
-			break;
 	}
 	return _.assign({}, state);
 }
@@ -44,9 +42,20 @@ function runningTime(state = 0, action) {
 	return state;
 }
 
-const GAME_STATE = { Won: 'Won', Lost: 'Lost', Active: 'Active', Initial: 'Initial' };
+export const GAME_STATE = { Won: 'Won', Lost: 'Lost', Active: 'Active', Initial: 'Initial' };
 
 function gameState(state = GAME_STATE.Initial, action) {
+	switch (action.type) {
+		case REVEAL_CELL:
+			if (action.payload.isMine) {
+				return GAME_STATE.Lost;
+			}
+
+			if (state === GAME_STATE.Initial) {
+				return GAME_STATE.Active;
+			}
+	}
+
 	return state;
 }
 

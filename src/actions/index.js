@@ -8,8 +8,7 @@ export function setGameSize(size) {
 	};
 }
 
-export function onCellClicked(data) {
-	console.log('onCellClicked', data);
+export function revealCell(data) {
 	return {
 		type: REVEAL_CELL,
 		payload: data

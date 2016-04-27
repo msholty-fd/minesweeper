@@ -6,6 +6,7 @@ import game from './components/game';
 import gridSizeSelector from './components/grid_size_selector';
 import grid from './components/grid';
 import cell from './components/cell';
+import gameStatus from './components/game_status';
 
 const app = angular.module('app', [
 	ngRedux
@@ -21,4 +22,5 @@ app
 	.component('game', game)
 	.component('grid', grid)
 	.component('cell', cell)
-	.component('gridSizeSelector', gridSizeSelector);
+	.component('gridSizeSelector', gridSizeSelector)
+	.component('gameStatus', gameStatus);
