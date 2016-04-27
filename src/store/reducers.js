@@ -44,7 +44,7 @@ export default combineReducers({
 });
 
 function generateGridFromSize(gameSize) {
-	let gridArray = _.map(_.range(0, (gameSize.width * gameSize.height)), (index) => cell());
+	let gridArray = _.map(_.range(0, (gameSize.width * gameSize.height)), (index) => cell({...cellDefault, index}));
 
 	_.each(_.sampleSize(gridArray, gameSize.mines), function(cell) {
 		cell.isMine = true;

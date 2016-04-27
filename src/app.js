@@ -5,6 +5,7 @@ import createStore from './store';
 import game from './components/game';
 import gridSizeSelector from './components/grid_size_selector';
 import grid from './components/grid';
+import cell from './components/cell';
 
 const app = angular.module('app', [
 	ngRedux
@@ -14,4 +15,5 @@ app
 	.config(createStore)
 	.component('game', game)
 	.component('grid', grid)
+	.component('cell', cell)
 	.component('gridSizeSelector', gridSizeSelector);

@@ -4,5 +4,9 @@ import GridController from './grid_controller';
 export default {
 	controller: GridController,
 	template,
-	controllerAs: 'grid'
+	controllerAs: 'grid',
+	bindings: {
+		rows: '<',
+		cellClick: '<'
+	}
 };
