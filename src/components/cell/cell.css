@@ -1,0 +1,18 @@
+.minesweeper-cell {
+	font-size: 0px;
+	width: 30px;
+	height: 30px;
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.minesweeper-cell--is-revealed {
+	font-size: initial;
+}
+
+.minesweeper-cell--is-mine.minesweeper-cell--is-revealed{
+	color: red;
+	background-color: red;
+}

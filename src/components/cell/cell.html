@@ -1,1 +1,3 @@
-<span ng-click="cell.clickHandler(cell.data)">{{ cell.data.isMine }}</span>
+<span class="minesweeper-cell" ng-click="cell.clickHandler(cell.data)"
+      ng-class="{'minesweeper-cell--is-revealed': cell.data.isRevealed,
+      'minesweeper-cell--is-mine' : cell.data.isMine }">{{ cell.data.mineCount }}</span>

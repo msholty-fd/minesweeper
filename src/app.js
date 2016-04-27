@@ -12,6 +12,11 @@ const app = angular.module('app', [
 ]);
 
 app
+	.run(($ngRedux, $rootScope) => {
+		$ngRedux.subscribe(() => {
+			setTimeout(() => $rootScope.$apply(), 100);
+		});
+	})
 	.config(createStore)
 	.component('game', game)
 	.component('grid', grid)

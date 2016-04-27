@@ -15,7 +15,7 @@ describe('cells reducer', () => {
 		});
 
 		each(result, (cell) => {
-			expect(cell).to.have.all.keys(['isFlagged', 'isMine', 'isRevealed']);
+			expect(cell).to.have.keys(['index', 'isFlagged', 'isMine', 'isRevealed']);
 			expect(cell).to.contain.keys({isFlagged: false, isRevealed: false});
 		});
 
